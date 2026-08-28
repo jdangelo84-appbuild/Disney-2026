@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orlando Halloween Trip — Oct 16–20, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+  :root{
+    --paper:#FBF6EC;
+    --ink:#241C15;
+    --ink-soft:#5C5142;
+    --teal:#1B4B43;
+    --gold:#C89B3C;
+    --pumpkin:#B5482B;
+    --line:#D8CDB8;
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding:0 0 60px;
+  }
+  header.masthead{
+    max-width:900px;
+    margin:0 auto;
+    padding:56px 24px 28px;
+    border-bottom:2px solid var(--ink);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    font-weight:600;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:700;
+    font-size:clamp(34px, 5vw, 54px);
+    line-height:1.02;
+    margin:8px 0 14px;
+  }
+  .subline{
+    font-size:16px;
+    color:var(--ink-soft);
+    max-width:560px;
+    line-height:1.5;
+  }
+  .flight-strip{
+    margin-top:22px;
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+  }
+  .flight-strip div{padding:8px 14px;border:1px solid var(--line);background:var(--card);}
+  .flight-strip b{color:var(--teal);}
+
+  .legend{
+    max-width:900px;
+    margin:26px auto 0;
+    padding:0 24px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    font-size:12.5px;
+  }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    padding:4px 9px;
+    border-radius:3px;
+    letter-spacing:.02em;
+    white-space:nowrap;
+    display:inline-block;
+  }
+  .tag.must{background:#1B4B43; color:#fff;}
+  .tag.try{background:#C89B3C; color:#241C15;}
+  .tag.skip{background:transparent; color:var(--pumpkin); border:1.5px solid var(--pumpkin);}
+  .tag.exp{background:#EFE7D3; color:var(--ink);}
+  .tag.all{background:#3F7D4F; color:#fff;}
+  .tag.e{background:#2C4A7C; color:#fff;}
+  .tag.stella{background:#8B3F64; color:#fff;}
+  .tag.maybe{background:transparent; color:#8B6F1F; border:1.5px solid #8B6F1F;}
+
+  main{max-width:900px; margin:0 auto; padding:10px 24px;}
+
+  .day{
+    position:relative;
+    background:var(--card);
+    margin:44px 0;
+    border:1.5px solid var(--ink);
+    page-break-inside:avoid;
+    break-inside:avoid;
+  }
+  .ticket-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+    padding:22px 26px 18px;
+    border-bottom:2px dashed var(--line);
+    position:relative;
+  }
+  .ticket-head::before, .ticket-head::after{
+    content:"";
+    position:absolute;
+    bottom:-9px;
+    width:18px; height:18px;
+    background:var(--paper);
+    border:1.5px solid var(--ink);
+    border-radius:50%;
+  }
+  .ticket-head::before{left:-10px;}
+  .ticket-head::after{right:-10px;}
+  .day-num{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); letter-spacing:.1em;}
+  .day-title{font-family:'Fraunces', serif; font-weight:700; font-size:26px; margin:2px 0 4px;}
+  .day-date{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--teal); font-weight:600;}
+  .park-badge{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    border:1.5px solid var(--ink); padding:6px 12px; text-align:center; white-space:nowrap;
+  }
+  .park-badge span{display:block; font-size:15px; font-family:'Fraunces',serif; font-weight:600; text-transform:none; letter-spacing:0; margin-top:2px;}
+  .day-body{padding:20px 26px 26px;}
+  .note{font-size:14.5px; color:var(--ink-soft); margin:0 0 16px; line-height:1.55; border-left:3px solid var(--gold); padding-left:12px;}
+
+  .reserve{
+    background:#F2ECD8;
+    border:1.5px solid var(--gold);
+    border-radius:8px;
+    padding:14px 16px;
+    margin:0 0 20px;
+  }
+  .reserve p.reserve-head{
+    margin:0 0 8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--pumpkin);
+  }
+  .reserve ul{margin:0; padding-left:18px; font-size:13.5px; line-height:1.5;}
+  .reserve li{margin-bottom:5px;}
+  .reserve li:last-child{margin-bottom:0;}
+
+  table{width:100%; border-collapse:collapse; font-size:14.5px; margin-bottom:6px;}
+  th{
+    text-align:left; font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:.08em; color:var(--ink-soft); border-bottom:1.5px solid var(--ink); padding:0 8px 8px 0;
+  }
+  td{padding:9px 8px 9px 0; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  td.time{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--ink-soft); white-space:nowrap;}
+  td.what b{display:block;}
+  td.what small{color:var(--ink-soft); font-size:12.5px;}
+  input[type=checkbox]{width:16px; height:16px; accent-color:var(--teal); cursor:pointer;}
+
+  .split-wrap{margin:8px 0 18px;}
+  .split-banner{
+    text-align:center; font-family:'IBM Plex Mono', monospace; font-size:11.5px; font-weight:600;
+    text-transform:uppercase; letter-spacing:.08em; color:var(--pumpkin);
+    padding:8px 0; border-top:2px dashed var(--line); border-bottom:2px dashed var(--line); margin-bottom:14px;
+  }
+  .split-cols{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:640px){.split-cols{grid-template-columns:1fr;}}
+  .agenda-card{border:1.5px solid var(--ink); border-radius:10px; padding:14px 16px; background:#FFFDF7;}
+  .agenda-card h4{
+    margin:0 0 10px; font-family:'Fraunces', serif; font-size:16px; display:flex; align-items:center; gap:8px;
+  }
+  .agenda-card .badge{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; font-weight:600; padding:3px 9px; border-radius:3px; color:#fff;
+  }
+  .agenda-card.e .badge{background:#2C4A7C;}
+  .agenda-card.stella .badge{background:#8B3F64;}
+  .agenda-slot{padding:8px 0; border-bottom:1px dashed var(--line); font-size:13.5px;}
+  .agenda-slot:last-child{border-bottom:none;}
+  .agenda-slot .t{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); display:block; margin-bottom:2px;}
+  .agenda-slot b{display:block; font-size:14px;}
+  .agenda-slot small{color:var(--ink-soft); font-size:12px;}
+  .regroup-line{text-align:center; font-size:12.5px; color:var(--teal); font-weight:600; margin:14px 0 4px;}
+
+  @media print{
+    body{padding:0;}
+    .no-print{display:none !important;}
+    .day{margin:0; border:1.5px solid #000; break-inside:avoid; box-shadow:none;}
+    a{color:inherit; text-decoration:none;}
+  }
+  .print-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:13px; font-weight:600; background:var(--ink); color:var(--paper);
+    border:none; padding:10px 18px; cursor:pointer; margin-top:20px;
+  }
+  .print-btn:hover{background:var(--teal);}
+  footer{max-width:900px; margin:30px auto 0; padding:0 24px; font-size:12.5px; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace;}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="eyebrow">Field Guide · Family of Four</div>
+  <h1>Orlando, Halloween Week</h1>
+  <p class="subline">Five days, four parks. "E" (12) and "Stella" (7) split off from whichever parent for a few rides each day, tags are by kid, not by parent. Real coasters for E are marked "her call", offered, not required.</p>
+  <div class="flight-strip">
+    <div>JETBLUE 499 &nbsp;<b>LGA → MCO</b>&nbsp; Fri Oct 16, 10:00a–12:55p</div>
+    <div>JETBLUE 698 &nbsp;<b>MCO → LGA</b>&nbsp; Tue Oct 20, 2:35p–5:09p</div>
+  </div>
+  <button class="print-btn no-print" onclick="window.print()">Print this itinerary</button>
+</header>
+
+<div class="legend no-print">
+  <span class="tag must">MUST DO</span>
+  <span class="tag try">TRY IT — small coaster</span>
+  <span class="tag skip">SKIP — too big</span>
+  <span class="tag exp">EXPERIENCE</span>
+  <span class="tag all">EVERYONE</span>
+  <span class="tag e">E</span>
+  <span class="tag stella">STELLA</span>
+  <span class="tag maybe">HER CALL — real coaster</span>
+</div>
+
+<main>
+
+  <!-- DAY 1 -->
+  <div class="day">
+    <div class="ticket-head">
+      <div>
+        <div class="day-num">DAY 1 OF 5</div>
+        <div class="day-title">Arrival &amp; Epcot</div>
+        <div class="day-date">Friday, October 16</div>
+      </div>
+      <div class="park-badge">ADMIT ONE<span>Epcot</span></div>
+    </div>
+    <div class="day-body">
+      <p class="note">Land 12:55p → Epcot by ~2:30–3:00p. E is locked in for Test Track; Cosmic Rewind is her call once she sees it, no pressure either way. Stella gets Frozen out of the way in parallel, everyone regroups for the World Showcase loop and Remy's.</p>
+
+      <div class="reserve">
+        <p class="reserve-head">📌 Reservations to lock in</p>
+        <ul>
+          <li><b>Lightning Lane:</b> book Test Track now, it's a lock. Hold off buying anything for Cosmic Rewind until E actually sees the ride and decides, no sense paying for a Lightning Lane on a coaster she might skip.</li>
+          <li><b>Dinner:</b> reserve the Rose &amp; Crown or Spice Road Table Fireworks Dining Package (World Showcase) for a guaranteed Luminous view with dinner built in.</li>
+        </ul>
+      </div>
+
+      <table>
+        <tr><th style="width:70px">Time</th><th>What</th><th style="width:100px">Priority</th><th style="width:30px"></th></tr>
+        <tr><td class="time">2:30p</td><td class="what"><b>Spaceship Earth</b><small>Right at entrance, easy warm‑up</small><br><span class="tag all">EVERYONE</span></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+      </table>
+
+      <div class="split-wrap">
+        <div class="split-banner">Split at 2:50p · regroup near Norway/China ~4:20p</div>
+        <div class="split-cols">
+          <div class="agenda-card e">
+            <h4><span class="badge">E</span> Agenda</h4>
+            <div class="agenda-slot"><span class="t">2:55p</span><b>Test Track</b><small>World Discovery, speed without a real drop</small></div>
+            <div class="agenda-slot"><span class="t">3:35p</span><b>Guardians of the Galaxy: Cosmic Rewind</b> <span class="tag maybe">HER CALL</span><small>Real coaster, backward launch + spin. Let her look at the vehicle and queue before deciding. If she passes, regroup with Stella early instead.</small></div>
+          </div>
+          <div class="agenda-card stella">
+            <h4><span class="badge">STELLA</span> Agenda</h4>
+            <div class="agenda-slot"><span class="t">2:55p</span><b>Frozen Ever After</b><small>Norway · smooth boat ride</small></div>
+            <div class="agenda-slot"><span class="t">3:25p</span><b>Journey of Water</b><small>Walk‑through water play, on the way toward World Showcase</small></div>
+            <div class="agenda-slot"><span class="t">3:45p</span><b>Wander Norway/Mexico pavilions</b><small>Character stop if one's out</small></div>
+          </div>
+        </div>
+        <div class="regroup-line">↳ Regroup near Norway/China, continue the loop together</div>
+      </div>
+
+      <table>
+        <tr><td class="time">4:30p</td><td class="what"><b>Continue the loop together</b><small>China → Germany → Italy → American Adventure → Japan → Morocco, brief stops only</small><br><span class="tag all">EVERYONE</span></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">6:45p</td><td class="what"><b>Remy's Ratatouille Adventure</b><small>France · 9th stop, both of you want this one. Running late? Skip ahead, the wait only grows.</small><br><span class="tag all">EVERYONE</span></td><td><span class="tag must">MUST DO</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">7:30p</td><td class="what"><b>Finish the loop: UK → Canada → Plaza</b></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">7:45p</td><td class="what"><b>Dinner, near the Plaza or Japan</b></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">8:30p</td><td class="what"><b>Claim a spot: Japan or World Showcase Plaza</b></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">9:00p</td><td class="what"><b>Luminous: The Symphony of Us</b><small>Included in admission, no extra ticket</small></td><td><span class="tag must">MUST DO</span></td><td><input type="checkbox"></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day">
+    <div class="ticket-head">
+      <div>
+        <div class="day-num">DAY 2 OF 5</div>
+        <div class="day-title">Epic Universe</div>
+        <div class="day-date">Saturday, October 17</div>
+      </div>
+      <div class="park-badge">ADMIT ONE<span>Epic Universe</span></div>
+    </div>
+    <div class="day-body">
+      <p class="note">Mario Kart and Ministry of Magic stay together as the two shared headliners, both dark‑ride‑style, no coaster drops. E's split‑off list leads with the non‑coaster picks; Mine‑Cart Madness is optional, only if she wants it after the others.</p>
+
+      <div class="reserve">
+        <p class="reserve-head">📌 Reservations to lock in</p>
+        <ul>
+          <li><b>Toadstool Cafe:</b> join the mobile waitlist on the Universal app the moment you enter, it's the park's most in‑demand restaurant and only seats via mobile queue, not a standard reservation.</li>
+          <li><b>Mine‑Cart Madness:</b> check the app for a virtual queue or Express Pass slot right away, E's split window is tight for this one.</li>
+          <li><b>Lunch:</b> Mead Hall in Isle of Berk works well as the regroup meal, casual, fast mobile ordering, and it's near where the split happens.</li>
+        </ul>
+      </div>
+
+      <table>
+        <tr><th style="width:70px">Time</th><th>What</th><th style="width:100px">Priority</th><th style="width:30px"></th></tr>
+        <tr><td class="time">Open</td><td class="what"><b>Mario Kart: Bowser's Challenge</b><small>Super Nintendo World · gentle physical motion, remove the headset if it's too visually busy</small><br><span class="tag all">EVERYONE</span></td><td><span class="tag must">MUST DO</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">+45m</td><td class="what"><b>Ministry of Magic</b><small>Wizarding World · flagship dark ride, immersive not spinny</small><br><span class="tag all">EVERYONE</span></td><td><span class="tag must">MUST DO</span></td><td><input type="checkbox"></td></tr>
+      </table>
+
+      <div class="split-wrap">
+        <div class="split-banner">Split midday · regroup at Celestial Park, late afternoon</div>
+        <div class="split-cols">
+          <div class="agenda-card e">
+            <h4><span class="badge">E</span> Agenda</h4>
+            <div class="agenda-slot"><span class="t">Midday</span><b>Mine‑Cart Madness</b> <span class="tag maybe">HER CALL</span><small>Donkey Kong Country · launch coaster with real drops. Try Fyre Drill and Frankenstein first, circle back only if she's up for it.</small></div>
+            <div class="agenda-slot"><span class="t">Midday</span><b>Fyre Drill</b><small>Isle of Berk · spinning, not dropping</small></div>
+            <div class="agenda-slot"><span class="t">Afternoon</span><b>Monsters Unchained: The Frankenstein Experiment</b><small>Dark Universe · her own pick, dark ride not a coaster</small></div>
+          </div>
+          <div class="agenda-card stella">
+            <h4><span class="badge">STELLA</span> Agenda</h4>
+            <div class="agenda-slot"><span class="t">Midday</span><b>Constellation Carousel</b><small>Celestial Park, gentle</small></div>
+            <div class="agenda-slot"><span class="t">Midday</span><b>Isle of Berk photo walk</b><small>Dragon meet‑and‑greets, no rides needed</small></div>
+            <div class="agenda-slot"><span class="t">Afternoon</span><b>Snack at Mead Hall</b><small>If lunch was earlier, a treat here works too</small></div>
+          </div>
+        </div>
+        <div class="regroup-line">↳ Regroup at Celestial Park before dinner</div>
+      </div>
+
+      <table>
+        <tr><td class="time">—</td><td class="what"><b>Stardust Racers</b><small>Dueling launch coaster with inversions</small></td><td><span class="tag skip">SKIP</span></td><td></td></tr>
+        <tr><td class="time">—</td><td class="what"><b>Curse of the Werewolf</b><small>Too scary and too spinning for either kid</small></td><td><span class="tag skip">SKIP</span></td><td></td></tr>
+        <tr><td class="time">Evening</td><td class="what"><b>Wander whichever land you finish in, photo ops</b><br><span class="tag all">EVERYONE</span></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day">
+    <div class="ticket-head">
+      <div>
+        <div class="day-num">DAY 3 OF 5</div>
+        <div class="day-title">Pool Morning &amp; MNSSHP</div>
+        <div class="day-date">Sunday, October 18</div>
+      </div>
+      <div class="park-badge">ADMIT ONE<span>Halloween Party</span></div>
+    </div>
+    <div class="day-body">
+      <p class="note">Slow morning on purpose. Trick‑or‑treat, the show, parade, and fireworks stay a family thing all night. Space Mountain is optional for E, shorter party‑night lines make it worth offering, not requiring.</p>
+
+      <div class="reserve">
+        <p class="reserve-head">📌 Reservations to lock in</p>
+        <ul>
+          <li><b>Hocus Pocus Villain Spelltacular:</b> no reservation exists, but claim seats 20–30 minutes early, this functions like one on a packed party night.</li>
+          <li><b>Dinner:</b> eat before you enter or mobile‑order once inside, sit‑down dining isn't really the play on a party night, you'll want to be moving.</li>
+        </ul>
+      </div>
+
+      <table>
+        <tr><th style="width:70px">Time</th><th>What</th><th style="width:100px">Priority</th><th style="width:30px"></th></tr>
+        <tr><td class="time">AM</td><td class="what"><b>Pool, slow start</b></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">3:30p</td><td class="what"><b>Arrive MK, grab party wristbands</b><br><span class="tag all">EVERYONE</span></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">4:00p</td><td class="what"><b>Trick‑or‑treat: Adventureland → Frontierland</b><br><span class="tag all">EVERYONE</span></td><td><span class="tag must">MUST DO</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">5:00p</td><td class="what"><b>Trick‑or‑treat: Liberty Square</b><br><span class="tag all">EVERYONE</span></td><td><span class="tag must">MUST DO</span></td><td><input type="checkbox"></td></tr>
+      </table>
+
+      <div class="split-wrap">
+        <div class="split-banner">Split at 5:45p · regroup at the hub, 7:15p</div>
+        <div class="split-cols">
+          <div class="agenda-card e">
+            <h4><span class="badge">E</span> Agenda</h4>
+            <div class="agenda-slot"><span class="t">5:45p</span><b>Space Mountain</b> <span class="tag maybe">HER CALL</span><small>Real coaster with drops, just in the dark. If she skips it, join Stella's lap instead, don't ride alone just to fill the slot.</small></div>
+          </div>
+          <div class="agenda-card stella">
+            <h4><span class="badge">STELLA</span> Agenda</h4>
+            <div class="agenda-slot"><span class="t">5:45p</span><b>Peter Pan's Flight or Under the Sea</b><small>Fantasyland, calm, on the way</small></div>
+            <div class="agenda-slot"><span class="t">6:20p</span><b>More trick‑or‑treat, unhurried</b></div>
+          </div>
+        </div>
+        <div class="regroup-line">↳ Regroup at the hub for the show</div>
+      </div>
+
+      <table>
+        <tr><td class="time">7:30p</td><td class="what"><b>Hocus Pocus Villain Spelltacular</b><br><span class="tag all">EVERYONE</span></td><td><span class="tag must">MUST DO</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">8:15p</td><td class="what"><b>Boo‑to‑You Parade</b><br><span class="tag all">EVERYONE</span></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">9:00p</td><td class="what"><b>Not‑So‑Spooky Spectacular</b><br><span class="tag all">EVERYONE</span></td><td><span class="tag must">MUST DO</span></td><td><input type="checkbox"></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day">
+    <div class="ticket-head">
+      <div>
+        <div class="day-num">DAY 4 OF 5</div>
+        <div class="day-title">Magic Kingdom</div>
+        <div class="day-date">Monday, October 19</div>
+      </div>
+      <div class="park-badge">ADMIT ONE<span>Magic Kingdom</span></div>
+    </div>
+    <div class="day-body">
+      <p class="note">Full day, rope drop to fireworks. Tiana's Bayou stays a family ride, you've confirmed she can handle the one big drop. Big Thunder is optional for her, a real coaster even if mild, worth offering rather than assuming.</p>
+
+      <div class="reserve">
+        <p class="reserve-head">📌 Reservations to lock in</p>
+        <ul>
+          <li><b>Lightning Lane:</b> Tiana's Bayou shares a tier with Big Thunder, Jungle Cruise, Peter Pan, and Space Mountain, only one Tier 1 booking at a time. Book Tiana's first thing, ride it as a family, then only rebook for Big Thunder if E's up for it after seeing it.</li>
+          <li><b>Dinner:</b> reserve Be Our Guest or Skipper Canteen for 6:30p, both have broader appeal than a straight princess character meal.</li>
+        </ul>
+      </div>
+
+      <table>
+        <tr><th style="width:70px">Time</th><th>What</th><th style="width:100px">Priority</th><th style="width:30px"></th></tr>
+        <tr><td class="time">Open</td><td class="what"><b>Seven Dwarfs Mine Train</b><small>Fantasyland · cut straight there at rope drop, skip if already ridden Sunday</small><br><span class="tag all">EVERYONE</span></td><td><span class="tag try">TRY IT</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">+30m</td><td class="what"><b>Peter Pan's Flight / it's a small world</b><small>Same land, while you're there</small><br><span class="tag all">EVERYONE</span></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">Midmorning</td><td class="what"><b>Haunted Mansion</b><small>Liberty Square</small><br><span class="tag all">EVERYONE</span></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+      </table>
+
+      <div class="split-wrap">
+        <div class="split-banner">Split midday · regroup at Frontierland/Adventureland border, 1:00p</div>
+        <div class="split-cols">
+          <div class="agenda-card e">
+            <h4><span class="badge">E</span> Agenda</h4>
+            <div class="agenda-slot"><span class="t">Midday</span><b>Big Thunder Mountain</b> <span class="tag maybe">HER CALL</span><small>Frontierland · a real coaster with a few small drops, mild by coaster standards but still a coaster. If she opts out, this becomes extra Frontierland time before Tiana's.</small></div>
+          </div>
+          <div class="agenda-card stella">
+            <h4><span class="badge">STELLA</span> Agenda</h4>
+            <div class="agenda-slot"><span class="t">Midday</span><b>Frontierland shops</b></div>
+            <div class="agenda-slot"><span class="t">Midday</span><b>Tom Sawyer Island raft</b><small>Calm, self‑paced</small></div>
+          </div>
+        </div>
+        <div class="regroup-line">↳ Regroup, head to Tiana's together</div>
+      </div>
+
+      <table>
+        <tr><td class="time">1:15p</td><td class="what"><b>Tiana's Bayou Adventure</b><small>Frontierland · both kids' top pick, quick 2‑second drop</small><br><span class="tag all">EVERYONE</span></td><td><span class="tag must">MUST DO</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">Midday</td><td class="what"><b>Pirates of the Caribbean / Jungle Cruise</b><small>Adventureland, last stop before the hub</small><br><span class="tag all">EVERYONE</span></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">3:00p</td><td class="what"><b>Festival of Fantasy Parade</b><small>Catch it from the hub as you pass through</small></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">Afternoon</td><td class="what"><b>Tomorrowland — PeopleMover</b><small>Slow, easy, saved for last since it's next to Main Street</small><br><span class="tag all">EVERYONE</span></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">—</td><td class="what"><b>Tron Lightcycle Run</b><small>Standing launch coaster, hits 59mph — too much</small></td><td><span class="tag skip">SKIP</span></td><td></td></tr>
+        <tr><td class="time">6:30p</td><td class="what"><b>Dinner reservation</b></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">9:00p</td><td class="what"><b>Happily Ever After</b></td><td><span class="tag must">MUST DO</span></td><td><input type="checkbox"></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day">
+    <div class="ticket-head">
+      <div>
+        <div class="day-num">DAY 5 OF 5</div>
+        <div class="day-title">Pool &amp; Departure</div>
+        <div class="day-date">Tuesday, October 20</div>
+      </div>
+      <div class="park-badge">ADMIT ONE<span>Home</span></div>
+    </div>
+    <div class="day-body">
+      <p class="note">No park today. Flight's not until 2:35p, so the whole morning is real pool time.</p>
+      <table>
+        <tr><th style="width:70px">Time</th><th>What</th><th style="width:100px">Priority</th><th style="width:30px"></th></tr>
+        <tr><td class="time">AM</td><td class="what"><b>Pool</b></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">12:00p</td><td class="what"><b>Leave for MCO</b></td><td><span class="tag exp">EXPERIENCE</span></td><td><input type="checkbox"></td></tr>
+        <tr><td class="time">2:35p</td><td class="what"><b>JetBlue 698 departs</b></td><td><span class="tag must">MUST DO</span></td><td><input type="checkbox"></td></tr>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Built for the Oct 16–20, 2026 trip · check ride/show times in the My Disney Experience and Universal apps 1–2 weeks out, they shift.
+</footer>
+
+</body>
+</html>
